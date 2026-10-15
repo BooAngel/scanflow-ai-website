@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ScanFlow AI | Smarter Radiology Preparation</title>
+
+    <style>
+
+        /* ================================
+           GENERAL
+        ================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8f7ff;
+            color: #102454;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+
+        /* ================================
+           NAVBAR
+        ================================= */
+
+        nav {
+            width: 100%;
+            padding: 18px 7%;
+            background: rgba(255,255,255,0.95);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(30, 30, 80, 0.08);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 25px;
+            font-weight: bold;
+            color: #102454;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #5b3fd4, #8e6cff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .logo span {
+            color: #7047d8;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #26345c;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            color: #7047d8;
+        }
+
+        .nav-button {
+            background: linear-gradient(135deg, #5a3fd0, #8056e8);
+            color: white !important;
+            padding: 11px 20px;
+            border-radius: 25px;
+        }
+
+
+        /* ================================
+           HERO
+        ================================= */
+
+        .hero {
+            min-height: 680px;
+            padding: 80px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+
+            background:
+                radial-gradient(circle at 80% 30%, #e9e1ff 0%, transparent 35%),
+                linear-gradient(135deg, #ffffff, #f3efff);
+        }
+
+        .hero-content {
+            width: 52%;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 30px;
+            background: #e9e0ff;
+            color: #6241bd;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            line-height: 1.05;
+            margin-bottom: 20px;
+            color: #102454;
+        }
+
+        .hero h1 span {
+            color: #7047d8;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 650px;
+            color: #526080;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .primary-button {
+            border: none;
+            padding: 15px 28px;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #5938d0, #8a61ed);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0 10px 25px rgba(100, 65, 210, 0.25);
+        }
+
+        .secondary-button {
+            padding: 14px 28px;
+            border-radius: 30px;
+            border: 2px solid #7655d9;
+            color: #5c42bd;
+            background: white;
+            font-weight: bold;
+        }
+
+        .hero-image {
+            width: 43%;
+            min-height: 400px;
+            border-radius: 35px;
+            background: linear-gradient(135deg, #ddd5ff, #eeeaff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #7257bd;
+            text-align: center;
+            padding: 30px;
+            box-shadow: 0 20px 50px rgba(60, 40, 120, 0.12);
+        }
+
+        /*
+        ======================================
+        IMAGE PLACEHOLDER
+
+        Replace this entire .hero-image with
+        an actual hospital / MRI image if you want.
+
+        Example:
+
+        <img src="images/mri.jpg" alt="MRI Scanner">
+
+        ======================================
+        */
+
+
+        /* ================================
+           TRUST BAR
+        ================================= */
+        .hero-image {
+            width: 43%;
+            min-height: 400px;
+            border-radius: 35px;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        
+
+        .trust-bar {
+            background: white;
+            padding: 25px 7%;
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #eee;
+        }
+
+        .trust-item {
+            text-align: center;
+        }
+
+        .trust-item strong {
+            display: block;
+            color: #102454;
+            font-size: 18px;
+        }
+
+        .trust-item span {
+            color: #777f99;
+            font-size: 13px;
+        }
+
+
+        /* ================================
+           SECTIONS
+        ================================= */
+
+        section {
+            padding: 90px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+            color: #102454;
+            margin-bottom: 12px;
+        }
+
+        .section-title h2 span {
+            color: #7047d8;
+        }
+
+        .section-title p {
+            color: #68728f;
+            font-size: 17px;
+        }
+
+
+        /* ================================
+           SCAN SELECTOR
+        ================================= */
+
+        .scan-section {
+            background: #ffffff;
+        }
+
+        .scan-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .scan-card {
+            padding: 30px 20px;
+            background: #faf9ff;
+            border: 2px solid #eee9ff;
+            border-radius: 25px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .scan-card:hover {
+            transform: translateY(-8px);
+            border-color: #9b80eb;
+            box-shadow: 0 15px 35px rgba(90, 60, 170, 0.12);
+        }
+
+        .scan-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 15px;
+            border-radius: 20px;
+            background: #e8ddff;
+            color: #6741ce;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+        }
+
+        .scan-card h3 {
+            margin-bottom: 7px;
+        }
+
+        .scan-card p {
+            font-size: 14px;
+            color: #707993;
+        }
+
+
+        /* ================================
+           PREPARATION TOOL
+        ================================= */
+
+        .prep-section {
+            background:
+                linear-gradient(135deg, #f5f0ff, #ffffff);
+        }
+
+        .prep-box {
+            max-width: 1000px;
+            margin: auto;
+            background: white;
+            padding: 45px;
+            border-radius: 35px;
+            box-shadow: 0 20px 50px rgba(45, 30, 100, 0.1);
+        }
+
+        .prep-box h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .prep-box > p {
+            color: #727b96;
+            margin-bottom: 25px;
+        }
+
+        .selection-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .selection-buttons button {
+            border: 1px solid #dcd3f7;
+            background: #faf9ff;
+            color: #5639b5;
+            padding: 12px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .selection-buttons button:hover,
+        .selection-buttons button.active {
+            background: #7047d8;
+            color: white;
+        }
+
+        .prep-result {
+            display: none;
+            background: #f6f3ff;
+            border-radius: 25px;
+            padding: 30px;
+        }
+
+        .prep-result.show {
+            display: block;
+        }
+
+        .prep-result h4 {
+            font-size: 25px;
+            margin-bottom: 20px;
+            color: #4f35a8;
+        }
+
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist li {
+            background: white;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .check {
+            width: 27px;
+            height: 27px;
+            border-radius: 50%;
+            background: #7752d8;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .medical-note {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff8e7;
+            border-left: 4px solid #e4b33e;
+            color: #6d5a2a;
+            border-radius: 8px;
+            font-size: 13px;
+        }
+
+
+        /* ================================
+           HOW IT WORKS
+        ================================= */
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 55px;
+            height: 55px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #5737c9, #8d65eb);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        .step h3 {
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            font-size: 14px;
+            color: #707994;
+        }
+
+
+        /* ================================
+           PHONE / DASHBOARD AREA
+        ================================= */
+
+        /* ================================
+   STAFF DASHBOARD PREVIEW
+================================ */
+
+.dashboard-preview {
+    flex: 1;
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.25),
+        0 5px 20px rgba(100, 80, 180, 0.15);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    transition: transform 0.4s ease,
+                box-shadow 0.4s ease;
+}
+
+
+/* Little browser-like top bar */
+
+.browser-bar {
+    height: 48px;
+    background: #f4f2fb;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 18px;
+
+    gap: 15px;
+
+    border-bottom: 1px solid #e3dff1;
+}
+
+
+/* Browser circles */
+
+.browser-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.browser-dots span {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #b7acd6;
+}
+
+
+/* Fake browser title */
+
+.browser-title {
+    font-size: 12px;
+    color: #77718e;
+
+    background: white;
+
+    padding: 6px 18px;
+
+    border-radius: 8px;
+
+    flex: 1;
+
+    text-align: center;
+}
+
+
+/* Dashboard screenshot */
+
+.dashboard-image-wrapper {
+    width: 100%;
+
+    background: #ffffff;
+
+    overflow: hidden;
+}
+
+
+.dashboard-image-wrapper img {
+    width: 100%;
+
+    display: block;
+
+    transition: transform 0.5s ease;
+}
+
+
+/* Nice hover effect */
+
+.dashboard-preview:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 35px 70px rgba(0, 0, 0, 0.3),
+        0 10px 30px rgba(100, 80, 180, 0.2);
+}
+
+
+.dashboard-preview:hover img {
+    transform: scale(1.02);
+}
+
+
+        .demo-section {
+            background: #101f4b;
+            color: white;
+        }
+
+        .demo-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .demo-text {
+            flex: 1;
+        }
+
+        .demo-text h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .demo-text h2 span {
+            color: #a98cff;
+        }
+
+        .demo-text p {
+            color: #cbd0e2;
+            margin-bottom: 25px;
+        }
+
+        .demo-list {
+            list-style: none;
+        }
+
+        .demo-list li {
+            margin-bottom: 14px;
+        }
+
+        .demo-list li::before {
+            content: "✓";
+            color: #a98cff;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .dashboard-placeholder {
+            flex: 1;
+            min-height: 350px;
+            background: #1c2d5e;
+            border: 1px solid #405080;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #aeb9da;
+        }
+
+
+        /* ================================
+           BENEFITS
+        ================================= */
+
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .benefit {
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            border: 1px solid #eeeaf8;
+        }
+
+        .benefit-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 16px;
+            background: #e9e0ff;
+            color: #6945ce;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+            margin-bottom: 18px;
+        }
+
+        .benefit h3 {
+            margin-bottom: 8px;
+        }
+
+        .benefit p {
+            color: #737c96;
+            font-size: 14px;
+        }
+
+
+        /* ================================
+           QR SECTION
+        ================================= */
+
+        .qr-section {
+            background: linear-gradient(135deg, #eee8ff, #ffffff);
+            text-align: center;
+        }
+
+        .qr-box {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 15px 40px rgba(60, 40, 130, 0.1);
+        }
+
+        /*testing...*/
+        .qr-placeholder {
+    width: 180px;
+    height: 180px;
+    margin: 25px auto;
+    background: white;
+    padding: 12px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    box-sizing: content-box;
+}
+
+.qr-code {
+    width: 180px;
+    height: 180px;
+    display: block;
+    object-fit: contain;
+}
+
+        .qr-box p {
+            color: #707994;
+        }
+
+
+        /* ================================
+           CTA
+        ================================= */
+
+        .cta {
+            padding: 90px 7%;
+            text-align: center;
+            background: linear-gradient(135deg, #5736c9, #8560e6);
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            max-width: 650px;
+            margin: auto auto 25px;
+            color: #e8e3ff;
+        }
+
+        .cta button {
+            background: white;
+            color: #5839bf;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+
+        /* ================================
+           FOOTER
+        ================================= */
+
+        footer {
+            background: #0d1b42;
+            color: white;
+            padding: 45px 7%;
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-brand h2 {
+            margin-bottom: 8px;
+        }
+
+        .footer-brand span {
+            color: #9d7df0;
+        }
+
+        .footer-brand p {
+            color: #aeb7d0;
+            max-width: 350px;
+            font-size: 14px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .footer-links a {
+            color: #d1d6e6;
+            font-size: 14px;
+        }
+
+        .copyright {
+            text-align: center;
+            color: #7f8aaa;
+            font-size: 13px;
+            margin-top: 35px;
+        }
+
+
+        /* ================================
+           MOBILE
+        ================================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-content {
+                width: 100%;
+            }
+
+            .hero-image {
+                width: 100%;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+            }
+
+            .scan-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .benefits {
+                grid-template-columns: 1fr;
+            }
+
+            .demo-container {
+                flex-direction: column;
+            }
+        }
+
+
+        @media (max-width: 550px) {
+
+            section {
+                padding: 60px 5%;
+            }
+
+            .hero {
+                padding: 60px 5%;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .scan-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .prep-box {
+                padding: 25px;
+            }
+
+            .trust-bar {
+                gap: 25px;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+
+            .cta h2 {
+                font-size: 32px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav>
+
+    <div class="logo">
+        <div class="logo-icon">✦</div>
+        ScanFlow <span>AI</span>
+    </div>
+
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#scans">Exams</a>
+        <a href="#prepare">Prepare</a>
+        <a href="#how">How It Works</a>
+        <a href="#about">About</a>
+
+        <a href="#prepare" class="nav-button">
+            Start Preparation
+        </a>
+    </div>
+
+</nav>
+
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            ✦ Smarter Preparation. Smoother Imaging.
+        </div>
+
+        <h1>
+            <!--In "Prepare" i added a link that takes you to other page (just a test)-->
+            <a href="Page1.html">Prepare</a> for your
+            <span>radiology exam</span>
+            with confidence.
+        </h1>
+
+        <p>
+            ScanFlow AI gives patients simple, personalised
+            preparation guidance before their radiology appointment.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#prepare">
+                <button class="primary-button">
+                    Prepare for My Exam →
+                </button>
+            </a>
+
+            <a href="#how">
+                <button class="secondary-button">
+                    How It Works
+                </button>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- IMAGE PLACEHOLDER
+         Replace this with an MRI / radiology image.
+    -->
+
+    <!--
+    <div class="hero-image">
+
+        <div>
+            <div style="font-size:70px;">🏥</div>
+
+            <h3>IMAGE PLACEHOLDER</h3>
+
+            <p>
+                Add a hospital, MRI scanner,
+                CT scanner, or radiology image here.
+            </p>
+        </div>
+
+    </div>
+    -->
+
+    <div class="hero-image">
+    <img src="Images/mri.png" alt="MRI Scanner">
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================================================
+     TRUST BAR
+========================================================= -->
+
+<div class="trust-bar">
+
+    <div class="trust-item">
+        <strong>For Patients</strong>
+        <span>Clear guidance & less stress</span>
+    </div>
+
+    <div class="trust-item">
+        <strong>For Radiographers</strong>
+        <span>Better workflow & fewer delays</span>
+    </div>
+
+    <div class="trust-item">
+        <strong>For Hospitals</strong>
+        <span>More efficiency & satisfaction</span>
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     EXAM TYPES
+========================================================= -->
+
+<section id="scans" class="scan-section">
+
+    <div class="section-title">
+
+        <h2>
+            Choose your <span>examination</span>
+        </h2>
+
+        <p>
+            Select your examination to learn about
+            the preparation steps you may need before your appointment.
+        </p>
+
+    </div>
+
+
+    <div class="scan-grid">
+
+
+        <div class="scan-card">
+
+            <div class="scan-icon">
+                🧠
+            </div>
+
+            <h3>MRI</h3>
+
+            <p>
+                Magnetic Resonance Imaging
+            </p>
+
+        </div>
+
+
+        <div class="scan-card">
+
+            <div class="scan-icon">
+                🩻
+            </div>
+
+            <h3>CT Scan</h3>
+
+            <p>
+                Computed Tomography
+            </p>
+
+        </div>
+
+
+        <div class="scan-card">
+
+            <div class="scan-icon">
+                🦴
+            </div>
+
+            <h3>X-Ray</h3>
+
+            <p>
+                Quick diagnostic imaging
+            </p>
+
+        </div>
+
+
+        <div class="scan-card">
+
+            <div class="scan-icon">
+                💧
+            </div>
+
+            <h3>Ultrasound</h3>
+
+            <p>
+                Sound-wave imaging
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     INTERACTIVE PREPARATION TOOL
+========================================================= -->
+
+<section id="prepare" class="prep-section">
+
+    <div class="section-title">
+
+        <h2>
+            Your personalised <span>preparation guide</span>
+        </h2>
+
+        <p>
+            Tell us what examination you are having
+            and we'll show a simple preparation checklist.
+        </p>
+
+    </div>
+
+
+    <div class="prep-box">
+
+        <h3>
+            What examination are you having?
+        </h3>
+
+        <p>
+            Select an examination below to begin.
+        </p>
+
+
+        <div class="selection-buttons">
+
+            <button onclick="showPreparation('MRI', this)">
+                MRI
+            </button>
+
+            <button onclick="showPreparation('CT Scan', this)">
+                CT Scan
+            </button>
+
+            <button onclick="showPreparation('X-Ray', this)">
+                X-Ray
+            </button>
+
+            <button onclick="showPreparation('Ultrasound', this)">
+                Ultrasound
+            </button>
+
+        </div>
+
+
+        <div id="prepResult" class="prep-result">
+
+            <h4 id="examTitle">
+                Your Preparation
+            </h4>
+
+            <ul id="checklist" class="checklist">
+            </ul>
+
+            <div class="medical-note">
+
+                <strong>Important:</strong>
+                Preparation requirements can vary depending on
+                the specific examination, body area, contrast use,
+                and hospital instructions. Always follow the
+                instructions provided by your healthcare provider.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     HOW IT WORKS
+========================================================= -->
+
+<section id="how">
+
+    <div class="section-title">
+
+        <h2>
+            How <span>ScanFlow AI</span> works
+        </h2>
+
+        <p>
+            A simple process designed to reduce confusion
+            before the patient reaches the radiology department.
+        </p>
+
+    </div>
+
+
+    <div class="steps">
+
+
+        <div class="step">
+
+            <div class="step-number">
+                1
+            </div>
+
+            <h3>Receive Your Link</h3>
+
+            <p>
+                After booking an appointment,
+                the patient receives a ScanFlow AI link or QR code.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                2
+            </div>
+
+            <h3>Prepare at Home</h3>
+
+            <p>
+                Patients answer a short questionnaire
+                and receive personalised preparation information.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                3
+            </div>
+
+            <h3>Digital Check-In</h3>
+
+            <p>
+                Patients scan their QR code when
+                they arrive at the hospital.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                4
+            </div>
+
+            <h3>Staff Dashboard</h3>
+
+            <p>
+                Radiographers can quickly see preparation
+                status and important patient notes.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     DASHBOARD / TECHNOLOGY
+========================================================= -->
+
+<section class="demo-section">
+
+    <div class="demo-container">
+
+        <div class="demo-text">
+
+            <h2>
+                Better information.
+                <span>Better workflow.</span>
+            </h2>
+
+            <p>
+                ScanFlow AI connects the patient preparation
+                process with the radiology team.
+            </p>
+
+            <ul class="demo-list">
+
+                <li>
+                    Personalised preparation instructions
+                </li>
+
+                <li>
+                    Digital check-in
+                </li>
+
+                <li>
+                    Preparation status for staff
+                </li>
+
+                <li>
+                    Fewer avoidable delays
+                </li>
+
+                <li>
+                    Improved patient understanding
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- IMAGE / SCREENSHOT PLACEHOLDER -->
+
+        <!--
+        <div class="dashboard-placeholder">
+
+            <div>
+
+                <div style="font-size:65px;">
+                    💻
+                </div>
+
+                <h3>
+                    DASHBOARD IMAGE PLACEHOLDER
+                </h3>
+
+                <p>
+                    Add your hospital staff dashboard
+                    screenshot here.
+                </p>
+
+            </div>
+
+        </div>
+        -->
+        <div class="dashboard-preview">
+
+            <div class="browser-bar">
+
+                <div class="browser-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div class="browser-title">
+                    ScanFlow AI • Staff Dashboard
+                </div>
+
+            </div>
+
+            <div class="dashboard-image-wrapper">
+
+                <img
+                    src="Images/DB.png"
+                    alt="ScanFlow AI Radiology Staff Dashboard"
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     BENEFITS
+========================================================= -->
+
+<section id="about">
+
+    <div class="section-title">
+
+        <h2>
+            Why <span>ScanFlow AI?</span>
+        </h2>
+
+        <p>
+            One platform connecting patients,
+            radiographers and hospitals.
+        </p>
+
+    </div>
+
+
+    <div class="benefits">
+
+
+        <div class="benefit">
+
+            <div class="benefit-icon">
+                ⏱
+            </div>
+
+            <h3>
+                Less Waiting
+            </h3>
+
+            <p>
+                Better preparation can help reduce
+                avoidable delays and rescheduling.
+            </p>
+
+        </div>
+
+
+        <div class="benefit">
+
+            <div class="benefit-icon">
+                ☺
+            </div>
+
+            <h3>
+                Better Patient Experience
+            </h3>
+
+            <p>
+                Patients receive simple information
+                before arriving at the hospital.
+            </p>
+
+        </div>
+
+
+        <div class="benefit">
+
+            <div class="benefit-icon">
+                ⚙
+            </div>
+
+            <h3>
+                Smarter Workflow
+            </h3>
+
+            <p>
+                Radiographers can spend less time
+                resolving avoidable preparation issues.
+            </p>
+
+        </div>
+
+
+        <div class="benefit">
+
+            <div class="benefit-icon">
+                🛡
+            </div>
+
+            <h3>
+                Better Communication
+            </h3>
+
+            <p>
+                Important preparation information
+                can be presented clearly and consistently.
+            </p>
+
+        </div>
+
+
+        <div class="benefit">
+
+            <div class="benefit-icon">
+                📊
+            </div>
+
+            <h3>
+                Hospital Efficiency
+            </h3>
+
+            <p>
+                A digital preparation workflow can
+                support smoother imaging operations.
+            </p>
+
+        </div>
+
+
+        <div class="benefit">
+
+            <div class="benefit-icon">
+                ✦
+            </div>
+
+            <h3>
+                Personalised Guidance
+            </h3>
+
+            <p>
+                Patients can receive instructions
+                based on their selected examination.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     QR CODE
+========================================================= -->
+
+<section class="qr-section">
+
+    <div class="qr-box">
+
+        <h2>
+            Start your preparation
+        </h2>
+
+        <p>
+            Scan the QR code from your appointment
+            to access ScanFlow AI.
+        </p>
+
+        
+        <!-- QR CODE PLACEHOLDER -->
+        
+        <!--testing...-->
+        <div class="qr-placeholder">
+            <img src="images/QR_code.png" alt="ScanFlow AI QR Code" class="qr-code">
+        </div>
+
+        <p>
+            QR CODE PLACEHOLDER
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CALL TO ACTION
+========================================================= -->
+
+<section class="cta">
+
+    <h2>
+        The right information,
+        at the right time.
+    </h2>
+
+    <p>
+        ScanFlow AI helps create a smoother radiology
+        experience for patients and healthcare teams.
+    </p>
+
+    <a href="#prepare">
+        <button>
+            Try ScanFlow AI →
+        </button>
+    </a>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <div class="footer-brand">
+
+            <h2>
+                ScanFlow <span>AI</span>
+            </h2>
+
+            <p>
+                Smarter preparation.
+                Smoother imaging.
+                Better care.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#scans">
+                Exams
+            </a>
+
+            <a href="#prepare">
+                Preparation
+            </a>
+
+            <a href="#how">
+                How It Works
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 ScanFlow AI — Student Project Prototype
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+    const preparationData = {
+
+        "MRI": [
+            "Follow the specific instructions provided by your imaging centre.",
+            "Tell the radiology team if you have metal implants or medical devices.",
+            "Remove metal objects such as jewellery when instructed.",
+            "Tell the radiographer about any concerns or questions you have.",
+            "Some MRI examinations may have additional preparation requirements."
+        ],
+
+        "CT Scan": [
+            "Follow the preparation instructions provided for your specific CT examination.",
+            "Some CT examinations may require fasting.",
+            "If contrast is planned, follow the instructions given by your healthcare provider.",
+            "Tell the radiology team about allergies and relevant medical conditions.",
+            "Bring any required appointment or medical information."
+        ],
+
+        "X-Ray": [
+            "Most routine X-rays require little preparation.",
+            "Follow any specific instructions given by your imaging centre.",
+            "Remove jewellery or metal objects when requested.",
+            "Tell the radiographer if you may be pregnant.",
+            "Ask the radiographer if you are unsure about anything before the examination."
+        ],
+
+        "Ultrasound": [
+            "Preparation depends on the type of ultrasound examination.",
+            "Some examinations may require fasting.",
+            "Some abdominal or pelvic examinations may require a full bladder.",
+            "Follow the instructions provided by your healthcare provider.",
+            "Arrive with enough time for check-in."
+        ]
+
+    };
+
+
+    function showPreparation(exam, button) {
+
+        const result = document.getElementById("prepResult");
+
+        const title = document.getElementById("examTitle");
+
+        const checklist = document.getElementById("checklist");
+
+
+        // Remove active class from all buttons
+
+        document
+            .querySelectorAll(".selection-buttons button")
+            .forEach(btn => {
+                btn.classList.remove("active");
+            });
+
+
+        // Activate selected button
+
+        button.classList.add("active");
+
+
+        // Change title
+
+        title.innerText = exam + " Preparation";
+
+
+        // Clear old checklist
+
+        checklist.innerHTML = "";
+
+
+        // Add new checklist
+
+        preparationData[exam].forEach(item => {
+
+            const li = document.createElement("li");
+
+            li.innerHTML = `
+                <span class="check">✓</span>
+                <span>${item}</span>
+            `;
+
+            checklist.appendChild(li);
+
+        });
+
+
+        // Show result
+
+        result.classList.add("show");
+
+
+        // Smooth scroll
+
+        result.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest"
+        });
+
+    }
+
+</script>
+
+
+</body>
+</html>
